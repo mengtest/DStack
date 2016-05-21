@@ -15,6 +15,6 @@ public class FullScreenEventHandler : MonoBehaviour {
 
 	void OnPress(bool state){
 		Debug.Log(" on press : "+state);
-		if(state) TestCtr.Instance().MoveCubeFallDown();
+		if(state) PlaySceneCtr.Instance().MoveCubeFallDown();
 	}
 }

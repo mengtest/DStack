@@ -16,6 +16,6 @@ public class GameResultCtr : MonoBehaviour {
 	public void OnRestart(){
 
 		this.gameObject.SetActive(false);
-		TestCtr.Instance().OnRestart();
+		PlaySceneCtr.Instance().OnRestart();
 	}
 }

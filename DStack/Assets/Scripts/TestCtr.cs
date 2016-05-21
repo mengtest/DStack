@@ -150,13 +150,63 @@ public class TestCtr : MonoBehaviour
 	float curScaleX = 1f;
 	float curScaleZ = 1f;
 
+//	void Combine ()
+//	{
+//		basePot = baseObj.transform.position;
+//		movePot = moveObj.transform.position;
+//		float dx = basePot.x - movePot.x;
+//		float dz = basePot.z - movePot.z;
+//
+//		float eS=dx*dx+dz*dz;
+//		if (eS< 0.01f) {
+//			Debug.Log (" prefect");
+//			moveV+=1f;
+//		}else if(eS<1f){
+//			moveV+=0.5f;
+//		}else if(eS>=1f){
+//			moveV=3f;
+//		}
+//
+//
+//		Vector3 centerPot = (basePot + movePot) * 0.5f;
+//		centerPot.y = 0;
+//
+//		float minx = basePot.x < movePot.x ? basePot.x : movePot.x;
+//		float maxx = basePot.x < movePot.x ? movePot.x : basePot.x;
+//		float minz = basePot.z < movePot.z ? basePot.z : movePot.z;
+//		float maxz = basePot.z < movePot.z ? movePot.z : basePot.z;
+//
+//		curScaleX = maxx - minx + curScaleX;
+//		curScaleZ = maxz - minz + curScaleZ;
+//
+//		baseObj.transform.position = centerPot;
+//		baseObj.transform.localScale = new Vector3 (curScaleX, 1f, curScaleZ);
+//
+//		move = true;
+//		moveByX=!moveByX;
+//		centerPot.y=1f;
+//		if(moveByX){
+//			this.minX=Mathf.Clamp( -curScaleX*2f,-rangeScale*0.6f,0);
+//			this.maxX=Mathf.Clamp(curScaleX*2f,0,rangeScale*0.6f);
+//			centerPot.x=this.minX;
+//		}else{
+//			this.minZ=Mathf.Clamp( -curScaleZ*2f,-rangeScale*0.6f,0);
+//			this.maxZ=Mathf.Clamp(curScaleZ*2f,0,rangeScale*0.6f);
+//			centerPot.z=this.minZ;
+//		}
+//		moveObj.transform.position = centerPot;
+//		moveObj.transform.localScale = new Vector3 (curScaleX, 1f, curScaleZ);
+//	
+//		CheckFail();
+//	}
+
 	void Combine ()
 	{
 		basePot = baseObj.transform.position;
 		movePot = moveObj.transform.position;
 		float dx = basePot.x - movePot.x;
 		float dz = basePot.z - movePot.z;
-
+		
 		float eS=dx*dx+dz*dz;
 		if (eS< 0.01f) {
 			Debug.Log (" prefect");
@@ -166,22 +216,22 @@ public class TestCtr : MonoBehaviour
 		}else if(eS>=1f){
 			moveV=3f;
 		}
-
-
+		
+		
 		Vector3 centerPot = (basePot + movePot) * 0.5f;
 		centerPot.y = 0;
-
+		
 		float minx = basePot.x < movePot.x ? basePot.x : movePot.x;
 		float maxx = basePot.x < movePot.x ? movePot.x : basePot.x;
 		float minz = basePot.z < movePot.z ? basePot.z : movePot.z;
 		float maxz = basePot.z < movePot.z ? movePot.z : basePot.z;
-
+		
 		curScaleX = maxx - minx + curScaleX;
 		curScaleZ = maxz - minz + curScaleZ;
-
+		
 		baseObj.transform.position = centerPot;
 		baseObj.transform.localScale = new Vector3 (curScaleX, 1f, curScaleZ);
-
+		
 		move = true;
 		moveByX=!moveByX;
 		centerPot.y=1f;
@@ -196,9 +246,10 @@ public class TestCtr : MonoBehaviour
 		}
 		moveObj.transform.position = centerPot;
 		moveObj.transform.localScale = new Vector3 (curScaleX, 1f, curScaleZ);
-	
+		
 		CheckFail();
 	}
+
 
 	public void MoveCubeFallDown ()
 	{
